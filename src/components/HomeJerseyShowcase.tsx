@@ -25,8 +25,8 @@ export const SHOWCASE_KITS: ShowcaseKit[] = [
     name: 'Kerala Blasters FC Home Kit',
     type: 'Home Kit',
     colorTag: 'Signature Yellow • Official Matchwear',
-    frontImage: '/hjf1.webp',
-    backImage: '/hjf2.webp',
+    frontImage: '/hjf1.png?v=3',
+    backImage: '/hjf2.png?v=3',
     price: 999,
     originalPrice: 1999,
     discount: '50% OFF',
@@ -39,8 +39,8 @@ export const SHOWCASE_KITS: ShowcaseKit[] = [
     name: 'Kerala Blasters FC Away Kit',
     type: 'Away Kit',
     colorTag: 'Monsoon Mist White • Official Matchwear',
-    frontImage: '/ajf1.webp',
-    backImage: '/ajf2.webp',
+    frontImage: '/ajf1.png?v=3',
+    backImage: '/ajf2.png?v=3',
     price: 999,
     originalPrice: 1999,
     discount: '50% OFF',
@@ -107,8 +107,8 @@ export const HomeJerseyShowcase: React.FC = () => {
           {/* UNIFIED ROPE & JERSEYS STAGE */}
           <div className="relative w-full max-w-[640px] sm:max-w-[680px] flex flex-col items-center">
             
-            {/* JERSEYS HANGING STAGE (CALIBRATED HEIGHT MATCHING CROPPED JERSEYS) */}
-            <div className="relative w-full h-[320px] sm:h-[370px] lg:h-[395px] xl:h-[405px]">
+            {/* JERSEYS HANGING STAGE (EXACT HEIGHT MATCH FOR SVG ROPE OVERLAY) */}
+            <div className="relative w-full h-[380px] sm:h-[440px] lg:h-[480px]">
               
               {/* LUMINOUS CURVED WHITE ROPE (EXACT GEMINI WAVE GEOMETRY) */}
               {/* Enters from screen far-left, dips through Home hook, crests between kits, dips through Away hook, soars to top AFTER heading */}
@@ -123,8 +123,8 @@ export const HomeJerseyShowcase: React.FC = () => {
                   <defs>
                     {/* Multi-layer soft luminous bloom filter for illuminated rope effect */}
                     <filter id="geminiThreadGlow" x="-50%" y="-50%" width="200%" height="200%">
-                      <feGaussianBlur stdDeviation="9" result="wideGlow" />
-                      <feGaussianBlur stdDeviation="3.5" result="tightGlow" />
+                      <feGaussianBlur stdDeviation="3.5" result="wideGlow" />
+                      <feGaussianBlur stdDeviation="1.5" result="tightGlow" />
                       <feMerge>
                         <feMergeNode in="wideGlow" />
                         <feMergeNode in="tightGlow" />
@@ -135,21 +135,21 @@ export const HomeJerseyShowcase: React.FC = () => {
 
                   {/* 1. Deep Wall Ambient Shadow underneath the rope */}
                   <path
-                    d="M -1800 -30 C -600 30, 50 75, 250 75 C 330 75, 420 26, 500 26 C 580 26, 670 75, 750 75 C 920 75, 1300 -50, 1650 -280"
+                    d="M -1800 -30 C -600 20, 50 80, 250 80 C 330 80, 420 36, 500 36 C 580 36, 670 80, 750 80 C 850 80, 1150 -50, 1650 -260"
                     stroke="#000e26"
-                    strokeWidth="7"
-                    strokeOpacity="0.5"
+                    strokeWidth="5"
+                    strokeOpacity="0.4"
                     strokeLinecap="round"
                     fill="none"
-                    transform="translate(0, 8)"
+                    transform="translate(0, 5)"
                   />
 
                   {/* 2. Soft Luminous White Halo Layer */}
                   <path
-                    d="M -1800 -30 C -600 30, 50 75, 250 75 C 330 75, 420 26, 500 26 C 580 26, 670 75, 750 75 C 920 75, 1300 -50, 1650 -280"
+                    d="M -1800 -30 C -600 20, 50 80, 250 80 C 330 80, 420 36, 500 36 C 580 36, 670 80, 750 80 C 850 80, 1150 -50, 1650 -260"
                     stroke="#ffffff"
-                    strokeWidth="6"
-                    strokeOpacity="0.4"
+                    strokeWidth="4.5"
+                    strokeOpacity="0.35"
                     strokeLinecap="round"
                     fill="none"
                     filter="url(#geminiThreadGlow)"
@@ -157,9 +157,9 @@ export const HomeJerseyShowcase: React.FC = () => {
 
                   {/* 3. Main Crisp Glowing Solid White Core */}
                   <path
-                    d="M -1800 -30 C -600 30, 50 75, 250 75 C 330 75, 420 26, 500 26 C 580 26, 670 75, 750 75 C 920 75, 1300 -50, 1650 -280"
+                    d="M -1800 -30 C -600 20, 50 80, 250 80 C 330 80, 420 36, 500 36 C 580 36, 670 80, 750 80 C 850 80, 1150 -50, 1650 -260"
                     stroke="#ffffff"
-                    strokeWidth="3.2"
+                    strokeWidth="2.8"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     fill="none"
@@ -178,23 +178,21 @@ export const HomeJerseyShowcase: React.FC = () => {
                   className="group relative flex flex-col items-center justify-start cursor-pointer w-full h-full px-2 sm:px-3 select-none"
                   style={{ perspective: 1400 }}
                 >
-                  {/* 3D FLIP CARD FOR HOME KIT (Pivots naturally around hook fixed on the rope at 15%) */}
+                  {/* 3D FLIP CARD FOR HOME KIT (Pivots naturally around hook contact point on rope at 17%) */}
                   <motion.div
                     animate={{
                       rotateY: hoveredHome ? 180 : 0,
-                      rotateZ: [-1.4, 1.4, -0.9, 1.2, -1.4],
-                      x: [-1, 1, -0.8, 0.8, -1],
-                      scale: hoveredHome ? 1.04 : 0.98,
+                      rotateZ: [-1.2, 1.2, -0.8, 1.0, -1.2],
+                      scale: hoveredHome ? 1.03 : 1,
                     }}
                     transition={{
                       rotateY: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
                       rotateZ: { duration: 6.8, repeat: Infinity, ease: 'easeInOut' },
-                      x: { duration: 7.2, repeat: Infinity, ease: 'easeInOut' },
                       scale: { duration: 0.3 },
                     }}
                     style={{
                       transformStyle: 'preserve-3d',
-                      transformOrigin: '50% 15%',
+                      transformOrigin: '50% 17%',
                     }}
                     className="relative w-full h-full flex items-start justify-center"
                   >
@@ -206,16 +204,11 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <picture className="w-auto h-full flex items-start justify-center">
-                        <source srcSet={homeKit.frontImage} type="image/webp" />
-                        <img
-                          src="/hjf1.png"
-                          alt="Home Kit Front"
-                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </picture>
+                      <img
+                        src={homeKit.frontImage}
+                        alt="Home Kit Front"
+                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                      />
                     </div>
 
                     {/* Back Face (hjf2) */}
@@ -227,16 +220,11 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <picture className="w-auto h-full flex items-start justify-center">
-                        <source srcSet={homeKit.backImage} type="image/webp" />
-                        <img
-                          src="/hjf2.png"
-                          alt="Home Kit Back"
-                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </picture>
+                      <img
+                        src={homeKit.backImage}
+                        alt="Home Kit Back"
+                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                      />
                     </div>
                   </motion.div>
                 </div>
@@ -249,23 +237,21 @@ export const HomeJerseyShowcase: React.FC = () => {
                   className="group relative flex flex-col items-center justify-start cursor-pointer w-full h-full px-2 sm:px-3 select-none"
                   style={{ perspective: 1400 }}
                 >
-                  {/* 3D FLIP CARD FOR AWAY KIT (Pivots naturally around hook fixed on the rope at 15%) */}
+                  {/* 3D FLIP CARD FOR AWAY KIT (Pivots naturally around hook contact point on rope at 17%) */}
                   <motion.div
                     animate={{
                       rotateY: hoveredAway ? 180 : 0,
-                      rotateZ: [1.2, -1.4, 0.9, -1.2, 1.2],
-                      x: [1, -1, 0.8, -0.8, 1],
-                      scale: hoveredAway ? 1.04 : 0.98,
+                      rotateZ: [1.0, -1.2, 0.8, -1.0, 1.0],
+                      scale: hoveredAway ? 1.03 : 1,
                     }}
                     transition={{
                       rotateY: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
                       rotateZ: { duration: 7.1, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
-                      x: { duration: 7.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
                       scale: { duration: 0.3 },
                     }}
                     style={{
                       transformStyle: 'preserve-3d',
-                      transformOrigin: '50% 15%',
+                      transformOrigin: '50% 17%',
                     }}
                     className="relative w-full h-full flex items-start justify-center"
                   >
@@ -277,16 +263,11 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <picture className="w-auto h-full flex items-start justify-center">
-                        <source srcSet={awayKit.frontImage} type="image/webp" />
-                        <img
-                          src="/ajf1.png"
-                          alt="Away Kit Front"
-                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </picture>
+                      <img
+                        src={awayKit.frontImage}
+                        alt="Away Kit Front"
+                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                      />
                     </div>
 
                     {/* Back Face (ajf2) */}
@@ -298,16 +279,11 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <picture className="w-auto h-full flex items-start justify-center">
-                        <source srcSet={awayKit.backImage} type="image/webp" />
-                        <img
-                          src="/ajf2.png"
-                          alt="Away Kit Back"
-                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </picture>
+                      <img
+                        src={awayKit.backImage}
+                        alt="Away Kit Back"
+                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                      />
                     </div>
                   </motion.div>
                 </div>
@@ -316,15 +292,15 @@ export const HomeJerseyShowcase: React.FC = () => {
 
             </div>
 
-            {/* KIT LABELS IN WHITE - Placed directly below the image */}
-            <div className="w-full grid grid-cols-2 gap-0 mt-2 sm:mt-2.5 relative z-20">
+            {/* KIT LABELS IN WHITE */}
+            <div className="w-full grid grid-cols-2 gap-0 mt-3 relative z-20">
               <div className="text-center px-2 sm:px-3">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white drop-shadow-sm">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white">
                   HOME KIT
                 </span>
               </div>
               <div className="text-center px-2 sm:px-3">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white drop-shadow-sm">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white">
                   AWAY KIT
                 </span>
               </div>
