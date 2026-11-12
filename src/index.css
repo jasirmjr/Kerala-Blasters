@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #071322;
+    color: #f1f5f9;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #071322;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e3a5f;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 209, 0, 0.3);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFD100;
+  }
+}
+
+@layer utilities {
+  .text-glow-yellow {
+    text-shadow: 0 0 20px rgba(255, 209, 0, 0.5), 0 0 40px rgba(255, 209, 0, 0.2);
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+
+  .box-glow-yellow {
+    box-shadow: 0 0 25px -5px rgba(255, 209, 0, 0.35);
+  }
+
+  .box-glow-blue {
+    box-shadow: 0 0 30px -5px rgba(12, 35, 64, 0.8);
+  }
+
+  .stadium-mesh {
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(255, 209, 0, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 100% 100%, rgba(12, 35, 64, 0.4) 0%, transparent 50%),
+      linear-gradient(rgba(7, 19, 34, 0.94), rgba(7, 19, 34, 0.98));
+  }
+
+  .grain-overlay {
+    background-image: radial-gradient(rgba(255, 209, 0, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .glass-panel {
+    background: rgba(12, 35, 64, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 209, 0, 0.15);
+  }
+
+  .glass-card {
+    background: rgba(10, 26, 47, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s ease;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(255, 209, 0, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(255, 209, 0, 0.2);
+    transform: translateY(-4px);
+  }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD100"/>
+      <stop offset="100%" stop-color="#E5A800"/>
+    </linearGradient>
+    <linearGradient id="shieldBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0C2340"/>
+      <stop offset="100%" stop-color="#001736"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield shape -->
+  <path d="M10 15 C10 10 20 5 50 5 C80 5 90 10 90 15 C90 60 70 85 50 95 C30 85 10 60 10 15 Z" fill="url(#shieldBlue)" stroke="url(#crestGold)" stroke-width="4"/>
+  <!-- Inner border -->
+  <path d="M15 18 C15 14 24 9 50 9 C76 9 85 14 85 18 C85 57 67 80 50 90 C33 80 15 57 15 18 Z" stroke="#FFD100" stroke-width="1.5" stroke-opacity="0.6"/>
+  <!-- Elephant Trunk & Head silhouette -->
+  <path d="M50 20 C40 20 32 26 30 35 C28 44 32 50 36 53 C38 46 44 42 50 42 C56 42 62 46 64 53 C68 50 72 44 70 35 C68 26 60 20 50 20 Z" fill="url(#crestGold)"/>
+  <!-- Tusks -->
+  <path d="M38 52 C35 56 31 66 35 72 C37 68 39 60 41 55 Z" fill="#FFFFFF"/>
+  <path d="M62 52 C65 56 69 66 65 72 C63 68 61 60 59 55 Z" fill="#FFFFFF"/>
+  <!-- Football -->
+  <circle cx="50" cy="70" r="10" fill="#FFD100" stroke="#0C2340" stroke-width="2"/>
+  <polygon points="50,64 55,67 53,73 47,73 45,67" fill="#0C2340"/>
+  <!-- KBFC Text -->
+  <text x="50" y="36" font-family="'Montserrat', sans-serif" font-weight="900" font-size="9" fill="#0C2340" text-anchor="middle" letter-spacing="1">KBFC</text>
+</svg>
