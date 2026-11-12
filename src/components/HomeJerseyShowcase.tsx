@@ -25,8 +25,8 @@ export const SHOWCASE_KITS: ShowcaseKit[] = [
     name: 'Kerala Blasters FC Home Kit',
     type: 'Home Kit',
     colorTag: 'Signature Yellow • Official Matchwear',
-    frontImage: '/hjf1.png?v=3',
-    backImage: '/hjf2.png?v=3',
+    frontImage: '/hjf1.webp',
+    backImage: '/hjf2.webp',
     price: 999,
     originalPrice: 1999,
     discount: '50% OFF',
@@ -39,8 +39,8 @@ export const SHOWCASE_KITS: ShowcaseKit[] = [
     name: 'Kerala Blasters FC Away Kit',
     type: 'Away Kit',
     colorTag: 'Monsoon Mist White • Official Matchwear',
-    frontImage: '/ajf1.png?v=3',
-    backImage: '/ajf2.png?v=3',
+    frontImage: '/ajf1.webp',
+    backImage: '/ajf2.webp',
     price: 999,
     originalPrice: 1999,
     discount: '50% OFF',
@@ -107,8 +107,8 @@ export const HomeJerseyShowcase: React.FC = () => {
           {/* UNIFIED ROPE & JERSEYS STAGE */}
           <div className="relative w-full max-w-[640px] sm:max-w-[680px] flex flex-col items-center">
             
-            {/* JERSEYS HANGING STAGE (EXACT HEIGHT MATCH FOR SVG ROPE OVERLAY) */}
-            <div className="relative w-full h-[380px] sm:h-[440px] lg:h-[480px]">
+            {/* JERSEYS HANGING STAGE (CALIBRATED HEIGHT MATCHING CROPPED JERSEYS) */}
+            <div className="relative w-full h-[320px] sm:h-[370px] lg:h-[395px] xl:h-[405px]">
               
               {/* LUMINOUS CURVED WHITE ROPE (EXACT GEMINI WAVE GEOMETRY) */}
               {/* Enters from screen far-left, dips through Home hook, crests between kits, dips through Away hook, soars to top AFTER heading */}
@@ -206,11 +206,16 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <img
-                        src={homeKit.frontImage}
-                        alt="Home Kit Front"
-                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                      />
+                      <picture className="w-auto h-full flex items-start justify-center">
+                        <source srcSet={homeKit.frontImage} type="image/webp" />
+                        <img
+                          src="/hjf1.png"
+                          alt="Home Kit Front"
+                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
 
                     {/* Back Face (hjf2) */}
@@ -222,11 +227,16 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <img
-                        src={homeKit.backImage}
-                        alt="Home Kit Back"
-                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                      />
+                      <picture className="w-auto h-full flex items-start justify-center">
+                        <source srcSet={homeKit.backImage} type="image/webp" />
+                        <img
+                          src="/hjf2.png"
+                          alt="Home Kit Back"
+                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                   </motion.div>
                 </div>
@@ -267,11 +277,16 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <img
-                        src={awayKit.frontImage}
-                        alt="Away Kit Front"
-                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                      />
+                      <picture className="w-auto h-full flex items-start justify-center">
+                        <source srcSet={awayKit.frontImage} type="image/webp" />
+                        <img
+                          src="/ajf1.png"
+                          alt="Away Kit Front"
+                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
 
                     {/* Back Face (ajf2) */}
@@ -283,11 +298,16 @@ export const HomeJerseyShowcase: React.FC = () => {
                       }}
                       className="absolute inset-0 w-full h-full flex items-start justify-center pointer-events-none"
                     >
-                      <img
-                        src={awayKit.backImage}
-                        alt="Away Kit Back"
-                        className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
-                      />
+                      <picture className="w-auto h-full flex items-start justify-center">
+                        <source srcSet={awayKit.backImage} type="image/webp" />
+                        <img
+                          src="/ajf2.png"
+                          alt="Away Kit Back"
+                          className="w-auto h-full object-contain object-top filter-none drop-shadow-none"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                   </motion.div>
                 </div>
@@ -296,15 +316,15 @@ export const HomeJerseyShowcase: React.FC = () => {
 
             </div>
 
-            {/* KIT LABELS IN WHITE */}
-            <div className="w-full grid grid-cols-2 gap-0 mt-3 relative z-20">
+            {/* KIT LABELS IN WHITE - Placed directly below the image */}
+            <div className="w-full grid grid-cols-2 gap-0 mt-2 sm:mt-2.5 relative z-20">
               <div className="text-center px-2 sm:px-3">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white drop-shadow-sm">
                   HOME KIT
                 </span>
               </div>
               <div className="text-center px-2 sm:px-3">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider block text-white drop-shadow-sm">
                   AWAY KIT
                 </span>
               </div>
