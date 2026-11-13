@@ -22,14 +22,6 @@ interface BannerAndFooterProps {
   onOpenKidsClub: () => void;
 }
 
-const SPONSORS = [
-  { name: 'Reyaur Sports', role: 'Official Kit Manufacturer', icon: '⚡' },
-  { name: 'Medimix', role: 'Official Co-Sponsor', icon: '🌿' },
-  { name: 'Kalliyath TMT', role: 'Official Strength Partner', icon: '🏗️' },
-  { name: 'BYJU’S Legacy', role: 'Grassroots Development', icon: '📚' },
-  { name: 'Aster Medcity', role: 'Official Medical Partner', icon: '🏥' },
-  { name: 'RedFM 93.5', role: 'Official Radio Partner', icon: '📻' },
-];
 
 export const BannerAndFooter: React.FC<BannerAndFooterProps> = ({
   onOpenTickets,
@@ -60,91 +52,101 @@ export const BannerAndFooter: React.FC<BannerAndFooterProps> = ({
   return (
     <div>
       {/* 1. Full-Height High-Impact Club Banner Section */}
-      <section className="relative py-28 md:py-36 bg-gradient-to-r from-[#0a1d36] via-[#051120] to-[#0a1d36] border-y-2 border-kbfc-yellow/30 overflow-hidden">
-        {/* Background Image / Crowd & Squad Celebration */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=2000&q=80"
-            alt="Kerala Blasters Stadium Roar"
-            className="w-full h-full object-cover object-center filter brightness-[0.25] contrast-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-kbfc-dark via-transparent to-kbfc-dark/80" />
-          <div className="absolute inset-0 bg-radial-gradient from-kbfc-yellow/10 via-transparent to-transparent pointer-events-none" />
-        </div>
+      
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <SlideIn from="bottom" distance={60}>
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-kbfc-yellow/20 border border-kbfc-yellow/40 backdrop-blur-md">
-            <span className="text-xl">🐘</span>
-            <span className="text-xs font-black uppercase tracking-widest text-kbfc-yellow">
-              THE PRIDE OF GOD'S OWN COUNTRY
-            </span>
-          </div>
-          </SlideIn>
+      {/* 2. Official Club Partners & Sponsors (Clean White Background, Black Logos, No Cards) */}
+      <section className="bg-white border-t border-b border-slate-200 py-20 sm:py-24 lg:py-28 relative select-none">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          
 
-          <SplitHeading
-            align="center"
-            first="WE ARE KERALA,"
-            second={
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-kbfc-yellow via-amber-300 to-kbfc-gold text-glow-yellow">
-                WE ARE YELLOW.
+          {/* ============================================================ */}
+          {/* PRINCIPAL SPONSOR TIER (AVT PREMIUM)                        */}
+          {/* ============================================================ */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="flex flex-col items-center mb-14 sm:mb-20 w-full"
+          >
+            <div className="inline-flex items-center space-x-2 mb-6">
+              <span className="w-6 sm:w-10 h-[1.5px] bg-[#002b7a]/25" />
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-[0.25em] text-[#002b7a]">
+                Principal Sponsor
               </span>
-            }
-            className="font-display font-black text-4xl sm:text-6xl md:text-7xl uppercase text-white tracking-tight leading-[0.95]"
-          />
+              <span className="w-6 sm:w-10 h-[1.5px] bg-[#002b7a]/25" />
+            </div>
 
-          <SlideIn from="bottom" distance={70} lag={1}>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-medium">
-            35 Million Malayalis. One shared heartbeat. Join us in Kochi this weekend as we defend the Kaloor fortress.
-          </p>
-          </SlideIn>
+            {/* AVT Premium Black Logo - Free-floating without card */}
+            <div className="group transition-transform duration-300 hover:scale-105 flex items-center justify-center p-2 cursor-pointer">
+              <img
+                src="/sponsors/avt-premium.png"
+                alt="AVT Premium - Principal Sponsor"
+                className="h-14 sm:h-18 lg:h-22 w-auto max-w-[280px] sm:max-w-[340px] object-contain opacity-95 group-hover:opacity-100 transition-opacity"
+              />
+            </div>
+          </motion.div>
 
-          <SlideIn from="bottom" distance={70} lag={2} className="pt-4 flex flex-wrap items-center justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onOpenTickets}
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-kbfc-yellow via-amber-400 to-kbfc-gold text-kbfc-dark font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-2xl shadow-kbfc-yellow/40 hover:brightness-110 flex items-center space-x-2"
-            >
-              <span>Secure Matchday Tickets</span>
-              <ChevronRight className="w-4 h-4" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                document.getElementById('shop-section')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider backdrop-blur-md transition-colors"
-            >
-              Official Team Shop
-            </motion.button>
-          </SlideIn>
+          {/* ============================================================ */}
+          {/* OFFICIAL PARTNERS TIER (Black Brand Logos, No Cards)         */}
+          {/* ============================================================ */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, delay: 0.1, ease: 'easeOut' }}
+            className="flex flex-col items-center w-full"
+          >
+            <div className="inline-flex items-center space-x-2 mb-8 sm:mb-12">
+              <span className="w-5 sm:w-8 h-[1px] bg-slate-300" />
+              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-slate-500">
+                Official Partners
+              </span>
+              <span className="w-5 sm:w-8 h-[1px] bg-slate-300" />
+            </div>
+
+            {/* Free-floating Black Official Partner Logos */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 items-center justify-items-center w-full max-w-5xl">
+              {/* 1. Aster Medcity */}
+              <div className="group flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <img
+                  src="/sponsors/aster-medcity.png"
+                  alt="Aster Medcity - Official Medical Partner"
+                  className="h-10 sm:h-12 lg:h-14 w-auto max-w-[160px] sm:max-w-[190px] object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
+
+              {/* 2. Bisleri */}
+              <div className="group flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <img
+                  src="/sponsors/bisleri.png?v=2"
+                  alt="Bisleri - Official Hydration Partner"
+                  className="h-11 sm:h-13 lg:h-16 w-auto max-w-[150px] sm:max-w-[180px] object-contain opacity-85 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
+
+              {/* 3. SIX5SIX */}
+              <div className="group flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <img
+                  src="/sponsors/six5six.png"
+                  alt="SIX5SIX - Official Kit Partner"
+                  className="h-11 sm:h-13 lg:h-16 w-auto max-w-[140px] sm:max-w-[170px] object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
+
+              {/* 4. activBASE */}
+              <div className="group flex items-center justify-center transition-transform duration-300 hover:scale-105 cursor-pointer">
+                <img
+                  src="/sponsors/activbase.png"
+                  alt="activBASE - Official Partner"
+                  className="h-8 sm:h-10 lg:h-12 w-auto max-w-[160px] sm:max-w-[200px] object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
-
-      {/* 2. Sponsor Roll */}
-      <div className="bg-black/60 border-b border-white/10 py-8 overflow-x-clip">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">
-            Official Club Partners & Sponsors
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center">
-            {SPONSORS.map((s, idx) => (
-              <SlideIn
-                key={idx}
-                from={idx < 3 ? 'left' : 'right'}
-                distance={idx < 3 ? 60 + (2 - idx) * 50 : 60 + (idx - 3) * 50}
-                className="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/5 hover:border-kbfc-yellow/30 w-full transition-all group"
-              >
-                <span className="text-2xl mb-1 group-hover:scale-110 transition-transform">{s.icon}</span>
-                <span className="font-bold text-white text-xs text-center">{s.name}</span>
-                <span className="text-[9px] text-slate-400 text-center">{s.role}</span>
-              </SlideIn>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* 3. Rich Multi-Column Footer */}
       <footer className="bg-gradient-to-b from-kbfc-dark via-[#040c17] to-black pt-16 pb-12 border-t border-white/10 text-slate-400 text-xs">

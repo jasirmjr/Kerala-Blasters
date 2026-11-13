@@ -16,6 +16,7 @@ import { VideosSection } from './components/VideosSection';
 import { YellowHeartSection } from './components/YellowHeartSection';
 import { YoungBlastersSection } from './components/YoungBlastersSection';
 import { GallerySection } from './components/GallerySection';
+import { CinematicVideoSection } from './components/CinematicVideoSection';
 import { BannerAndFooter } from './components/BannerAndFooter';
 
 // Modals
@@ -158,6 +159,9 @@ export const App: React.FC = () => {
 
             {/* Section 7: Matchday & Fan Gallery */}
             <GallerySection gallery={gallery} />
+
+            {/* Section 7B: Full-Screen Cinematic Video Experience (GIF Model) */}
+            <CinematicVideoSection />
 
             {/* Section 8: Full-Height Banner & Footer */}
             <BannerAndFooter
